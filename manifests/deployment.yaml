@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: kheng-sovannak1578-khengblogwebsite-container
-          image: pipejet/kheng-sovannak1578-khengblogwebsite:1
+          image: pipejet/kheng-sovannak1578-khengblogwebsite:2
           ports:
             - containerPort: 5173
