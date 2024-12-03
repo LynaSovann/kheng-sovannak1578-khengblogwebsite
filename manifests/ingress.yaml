@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kheng-sovannak1578-khengblogwebsite-https-ingress
+  namespace: kheng-sovannak1578-khengblogwebsite
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - kheng-sovannak1578-khengblogwebsite.assessify.org
+      secretName: kheng-sovannak1578-khengblogwebsite-secret-tls
+  rules:
+    - host: kheng-sovannak1578-khengblogwebsite.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kheng-sovannak1578-khengblogwebsite-service
+                port:
+                  number: 8330
