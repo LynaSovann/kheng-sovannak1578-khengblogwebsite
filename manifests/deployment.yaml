@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kheng-sovannak1578-khengblogwebsite-deployment
+  labels:
+    app: kheng-sovannak1578-khengblogwebsite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kheng-sovannak1578-khengblogwebsite
+  template:
+    metadata:
+      labels:
+        app: kheng-sovannak1578-khengblogwebsite
+    spec:
+      containers:
+        - name: kheng-sovannak1578-khengblogwebsite-container
+          image: pipejet/kheng-sovannak1578-khengblogwebsite:0
+          ports:
+            - containerPort: 5173
